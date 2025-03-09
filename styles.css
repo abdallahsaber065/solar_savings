@@ -1,0 +1,323 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #1a5276;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Calculator Container */
+.calculator-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Input Section */
+.input-section {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.input-section h2 {
+    margin-bottom: 20px;
+    color: #1a5276;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.btn {
+    background-color: #2e86c1;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #1a5276;
+}
+
+/* Results Section */
+.results-section {
+    flex: 2;
+    min-width: 500px;
+}
+
+.results-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.column {
+    flex: 1;
+    min-width: 200px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.pge-column {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.sunrun-column {
+    background-color: #3498db;
+    color: white;
+}
+
+.savings-column {
+    background-color: #27ae60;
+    color: white;
+}
+
+.column h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.result-item .label {
+    font-weight: bold;
+}
+
+.result-item .value {
+    font-weight: bold;
+}
+
+/* Totals Section */
+.totals-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.total-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.total-item .label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.total-item .value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2e86c1;
+}
+
+/* Milestone Savings */
+.milestone-savings {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.milestone-savings h3 {
+    margin-bottom: 15px;
+    color: #1a5276;
+    text-align: center;
+}
+
+.milestone-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.milestone-item .label {
+    font-weight: bold;
+}
+
+.milestone-item .value {
+    font-weight: bold;
+    color: #27ae60;
+}
+
+/* Charts Section */
+.charts-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.chart-container {
+    flex: 1;
+    min-width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.chart-container h3 {
+    margin-bottom: 15px;
+    color: #1a5276;
+}
+
+.chart {
+    height: 300px;
+    margin-bottom: 15px;
+}
+
+.chart-container p {
+    font-style: italic;
+    color: #666;
+}
+
+/* Monthly Comparison Section */
+.monthly-comparison-section {
+    margin-bottom: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.monthly-comparison-section h3 {
+    margin-bottom: 15px;
+    color: #1a5276;
+    text-align: center;
+}
+
+.comparison-table-container {
+    overflow-x: auto;
+}
+
+#monthly-comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#monthly-comparison-table th,
+#monthly-comparison-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+#monthly-comparison-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+#monthly-comparison-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Email Section */
+.email-section {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.email-section h3 {
+    margin-bottom: 15px;
+    color: #1a5276;
+    text-align: center;
+}
+
+.email-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .calculator-container,
+    .results-grid,
+    .charts-section {
+        flex-direction: column;
+    }
+    
+    .input-section,
+    .results-section,
+    .chart-container {
+        min-width: 100%;
+    }
+    
+    .totals-section {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .total-item {
+        width: 100%;
+    }
+}

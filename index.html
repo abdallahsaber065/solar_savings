@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Savings Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LIFETIME SOLAR SAVINGS</h1>
+        </header>
+        
+        <div class="calculator-container">
+            <div class="input-section">
+                <h2>Input Parameters</h2>
+                <div class="input-group">
+                    <label for="annual-kwh-usage">Annual kWh Usage:</label>
+                    <input type="number" id="annual-kwh-usage" value="10000">
+                </div>
+                <div class="input-group">
+                    <label for="pge-rate">PG&E Rate:</label>
+                    <input type="number" id="pge-rate" value="0.65" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="pge-annual-rate-increase">PG&E Annual Rate Increase %:</label>
+                    <input type="number" id="pge-annual-rate-increase" value="5.9" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label for="sunrun-kwh-rate">Sunrun kWh Rate:</label>
+                    <input type="number" id="sunrun-kwh-rate" value="0.199" step="0.001">
+                </div>
+                <div class="input-group">
+                    <label for="inflation-escalator">Inflation Escalator %:</label>
+                    <input type="number" id="inflation-escalator" value="2.9" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label for="monthly-battery">Monthly Battery:</label>
+                    <input type="number" id="monthly-battery" value="0" step="1">
+                </div>
+                <button id="calculate-btn" class="btn">Calculate Savings</button>
+            </div>
+            
+            <div class="results-section">
+                <div class="results-grid">
+                    <div class="column pge-column">
+                        <h3>PG&E</h3>
+                        <div class="result-item">
+                            <span class="label">Annual kWh Usage:</span>
+                            <span class="value" id="pge-annual-kwh">10000</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">PG&E Rate:</span>
+                            <span class="value" id="pge-rate-display">$0.65</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">PG&E Annual Rate Increase %:</span>
+                            <span class="value" id="pge-increase-display">5.9%</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">Avg kWh per month:</span>
+                            <span class="value" id="avg-kwh-month">833</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">Monthly Electricity Payments:</span>
+                            <span class="value" id="monthly-electricity-payments">$541.67</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">Annual Electricity Payments:</span>
+                            <span class="value" id="annual-electricity-payments">$6,500.00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="column sunrun-column">
+                        <h3>SUNRUN</h3>
+                        <div class="result-item">
+                            <span class="label">Sunrun kWh Rate:</span>
+                            <span class="value" id="sunrun-rate-display">$0.199</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">Inflation Escalator %:</span>
+                            <span class="value" id="inflation-escalator-display">2.9%</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">Monthly Solar:</span>
+                            <span class="value" id="monthly-solar">$215.58</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">Monthly Battery:</span>
+                            <span class="value" id="monthly-battery-display">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">Monthly Payment:</span>
+                            <span class="value" id="monthly-payment">$280.58</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">Annual Payment:</span>
+                            <span class="value" id="annual-payment">$3,367.00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="column savings-column">
+                        <h3>SAVINGS</h3>
+                        <div class="result-item">
+                            <span class="label">Rate Savings:</span>
+                            <span class="value" id="rate-savings">60%</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">Monthly Savings:</span>
+                            <span class="value" id="monthly-savings">$261.09</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">Annual Savings:</span>
+                            <span class="value" id="annual-savings">$3,133.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">Lifetime Savings:</span>
+                            <span class="value" id="lifetime-savings">$279,174.00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="totals-section">
+                    <div class="total-item">
+                        <span class="label">Total Sunrun Spend 25yrs:</span>
+                        <span class="value" id="total-sunrun-spend">$131,744.17</span>
+                    </div>
+                    <div class="total-item">
+                        <span class="label">Total PG&E Spend 25yrs:</span>
+                        <span class="value" id="total-pge-spend">$410,918.17</span>
+                    </div>
+                </div>
+                
+                <div class="milestone-savings">
+                    <h3>Cumulative Savings</h3>
+                    <div class="milestone-item">
+                        <span class="label">Total thru Year 5:</span>
+                        <span class="value" id="savings-year-5">$0.00</span>
+                    </div>
+                    <div class="milestone-item">
+                        <span class="label">Total thru Year 10:</span>
+                        <span class="value" id="savings-year-10">$0.00</span>
+                    </div>
+                    <div class="milestone-item">
+                        <span class="label">Total thru Year 15:</span>
+                        <span class="value" id="savings-year-15">$0.00</span>
+                    </div>
+                    <div class="milestone-item">
+                        <span class="label">Total thru Year 20:</span>
+                        <span class="value" id="savings-year-20">$0.00</span>
+                    </div>
+                    <div class="milestone-item">
+                        <span class="label">Total thru Year 25:</span>
+                        <span class="value" id="savings-year-25">$0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="charts-section">
+            <div class="chart-container">
+                <h3>PG&E Cost of Doing Nothing</h3>
+                <div class="chart" id="pge-chart"></div>
+                <p>Bills will double every 7-8 years</p>
+            </div>
+            
+            <div class="chart-container">
+                <h3>SUNRUN SOLAR</h3>
+                <div class="chart" id="sunrun-chart"></div>
+                <p>Lower Rates, Predictable Bills</p>
+            </div>
+            
+            <div class="chart-container">
+                <h3>SUNRUN VS PG&E</h3>
+                <div class="chart" id="comparison-chart"></div>
+            </div>
+        </div>
+        
+        <div class="monthly-comparison-section">
+            <h3>Monthly Payment Comparison Over 25 Years</h3>
+            <div class="comparison-table-container">
+                <table id="monthly-comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>PG&E</th>
+                            <th>SUNRUN</th>
+                            <th>MONTHLY SAVINGS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="email-section">
+            <h3>Save and Email Report</h3>
+            <div class="email-form">
+                <div class="input-group">
+                    <label for="customer-name">Customer Name:</label>
+                    <input type="text" id="customer-name">
+                </div>
+                <div class="input-group">
+                    <label for="customer-email">Customer Email:</label>
+                    <input type="email" id="customer-email">
+                </div>
+                <button id="email-btn" class="btn">Send Report</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
