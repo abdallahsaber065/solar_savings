@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar Savings Calculator</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
@@ -162,19 +162,25 @@
         <div class="charts-section">
             <div class="chart-container">
                 <h3>PG&E Cost of Doing Nothing</h3>
-                <div class="chart" id="pge-chart"></div>
+                <div class="chart">
+                    <canvas id="pge-chart"></canvas>
+                </div>
                 <p>Bills will double every 7-8 years</p>
             </div>
             
             <div class="chart-container">
                 <h3>SUNRUN SOLAR</h3>
-                <div class="chart" id="sunrun-chart"></div>
+                <div class="chart">
+                    <canvas id="sunrun-chart"></canvas>
+                </div>
                 <p>Lower Rates, Predictable Bills</p>
             </div>
             
             <div class="chart-container">
                 <h3>SUNRUN VS PG&E</h3>
-                <div class="chart" id="comparison-chart"></div>
+                <div class="chart">
+                    <canvas id="comparison-chart"></canvas>
+                </div>
             </div>
         </div>
         
@@ -213,17 +219,16 @@
         </div>
     </div>
     
-    <!-- Load external libraries -->
+    <!-- Load external libraries first -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         (function() {
-            // Initialize EmailJS with your public key
-            // Note: In a production environment, you would need to sign up for EmailJS and use your own public key
-            emailjs.init("YOUR_PUBLIC_KEY");
+            emailjs.init("YOUR_PUBLIC_KEY_HERE");
         })();
     </script>
-    <!-- Load our main script as a module -->
-    <script type="module" src="script.js"></script>
+    
+    <!-- Load our modular scripts -->
+    <script type="module" src="/js/script.js"></script>
 </body>
 </html>

@@ -10,16 +10,8 @@ import { initializeCharts, updateCharts } from './js/chart.js';
 import { sendEmail } from './js/email.js';
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Load Chart.js if not already loaded
-    if (typeof Chart === 'undefined') {
-        console.error('Chart.js is not loaded!');
-        const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
-        script.onload = initializeCalculator;
-        document.head.appendChild(script);
-    } else {
-        initializeCalculator();
-    }
+    // Initialize the calculator directly since Chart.js is loaded in the HTML
+    initializeCalculator();
     
     function initializeCalculator() {
         // Get DOM elements
