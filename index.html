@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar Savings Calculator</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
@@ -203,32 +203,19 @@
             </div>
         </div>
         
-        <div class="email-section">
-            <h3>Save and Email Report</h3>
+        <div class="email-section print-hidden">
+            <h3>Download Report</h3>
             <div class="email-form">
-                <div class="input-group">
-                    <label for="customer-name">Customer Name:</label>
-                    <input type="text" id="customer-name">
-                </div>
-                <div class="input-group">
-                    <label for="customer-email">Customer Email:</label>
-                    <input type="email" id="customer-email">
-                </div>
-                <button id="email-btn" class="btn">Send Report</button>
+                <button id="download-pdf-btn" class="btn">Download PDF</button>
             </div>
         </div>
     </div>
     
     <!-- Load external libraries first -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        (function() {
-            emailjs.init("YOUR_PUBLIC_KEY_HERE");
-        })();
-    </script>
     
-    <!-- Load our modular scripts -->
-    <script type="module" src="/js/script.js"></script>
+    <!-- Load our script (no modules so file:// works) -->
+    <script src="js/script.js"></script>
 </body>
 </html>
+

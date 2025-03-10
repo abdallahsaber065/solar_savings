@@ -44,8 +44,8 @@ header h1 {
 
 /* Input Section */
 .input-section {
-    flex: 1;
-    min-width: 300px;
+    flex: 0 0 290px;
+    min-width: 290px;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
@@ -279,7 +279,7 @@ header h1 {
     background-color: #f9f9f9;
 }
 
-/* Email Section */
+/* Email / Download Section */
 .email-section {
     background-color: #fff;
     border-radius: 8px;
@@ -298,8 +298,45 @@ header h1 {
     margin: 0 auto;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Print styles - keep desktop layout, optimize for PDF */
+@media print {
+    @page {
+        size: A4 landscape;
+        margin: 10mm;
+    }
+
+    /* Try to preserve colors as much as the browser allows */
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 10px;
+        box-shadow: none;
+    }
+
+    .chart {
+        height: 220px;
+    }
+
+    /* Hide admin-only areas */
+    .input-section,
+    .email-section,
+    .print-hidden {
+        display: none !important;
+    }
+}
+
+/* Responsive Design (screen only) */
+@media screen and (max-width: 768px) {
     .calculator-container,
     .results-grid,
     .charts-section {
@@ -321,3 +358,4 @@ header h1 {
         width: 100%;
     }
 }
+
